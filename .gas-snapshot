@@ -1,0 +1,3 @@
+ManualTokenTest:testBalanceof() (gas: 10651)
+ManualTokenTest:testDecimals() (gas: 8373)
+ManualTokenTest:testTotalSupply() (gas: 8339)

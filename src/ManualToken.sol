@@ -4,8 +4,12 @@ pragma solidity 0.8.18;
 contract ManualToken {
     mapping(address => uint256) private s_balances;
 
+    constructor() {
+        s_balances[msg.sender] = 100 ether;
+    }
+
     function name() public pure returns (string memory) {
-        return "Faraz Coin";
+        return "Faraz Token";
     }
 
     function symbol() public pure returns (string memory) {
@@ -27,7 +31,7 @@ contract ManualToken {
     function transfer(address _to, uint256 _amount) public {
         uint256 previousBalance = balanceOf(msg.sender) + balanceOf(_to);
         s_balances[msg.sender] -= _amount;
-        s_balances[msg.sender] += _amount;
+        s_balances[_to] += _amount;
         require(balanceOf(msg.sender) + balanceOf(_to) == previousBalance);
     }
 }
