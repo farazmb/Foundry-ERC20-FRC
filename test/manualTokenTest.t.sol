@@ -21,7 +21,7 @@ contract ManualTokenTest is Test {
         assertEq(token.decimals(), 18);
     }
 
-    function testBalanceof() public {
+    function testBalanceof() public view {
         assertEq(token.balanceOf(address(this)), 100 ether);
     }
 
@@ -69,10 +69,8 @@ contract ManualTokenTest is Test {
     }
 
     function testZeroAddress() public {
-        token.transfer(address(0), 10 ether);
-        vm.expectRevert();
-        require(recipient != address(0), "Invalid address: zero address");
-        //  vm.expectRevert();
+        vm.expectRevert("Invalid address: zero address"); // Expect revert message
+        token.transfer(address(0), 10 ether); // This should revert
     }
 }
 //10000000000000000000000

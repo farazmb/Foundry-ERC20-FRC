@@ -5,7 +5,7 @@ contract ManualToken {
     mapping(address => uint256) private s_balances;
 
     constructor() {
-        s_balances[msg.sender] = 100 ether;
+        s_balances[msg.sender] = 1000 ether;
     }
 
     function name() public pure returns (string memory) {
